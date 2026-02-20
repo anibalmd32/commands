@@ -23,7 +23,7 @@ sudo chmod a+r /etc/apt/keyrings/docker.gpg
 echo "📂 Agregando el repositorio de Docker a las fuentes de APT..."
 echo \
   "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
-  $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
+  $(. /etc/os-release && echo "${UBUNTU_CODENAME:-$VERSION_CODENAME}") stable" | \
   sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 
 # 4. Instalación de Docker Engine y Plugins
